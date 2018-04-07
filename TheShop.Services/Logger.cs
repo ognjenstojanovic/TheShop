@@ -1,8 +1,9 @@
 ﻿namespace TheShop.Services
 {
     using System;
+    using Interfaces;
 
-    public class Logger
+    public class Logger : ILogger
     {
         public void Info(string message)
         {

@@ -1,8 +1,9 @@
 ﻿namespace TheShop.Services
 {
+    using Interfaces;
     using Model;
 
-    public class Supplier1
+    public class Supplier1 : ISupplier
     {
         public bool ArticleInInventory(int id)
         {

@@ -1,14 +1,14 @@
-﻿using System;
-
-namespace TheShop
+﻿namespace TheShop
 {
+    using System;
     using Services;
+    using Services.Interfaces;
 
     internal class Program
 	{
 		private static void Main(string[] args)
 		{
-			var shopService = new ShopService();
+			IShopService shopService = new ShopService();
 
 			try
 			{

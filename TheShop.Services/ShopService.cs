@@ -1,17 +1,19 @@
 ﻿namespace TheShop.Services
 {
     using System;
+    using Interfaces;
     using Model;
     using Repositories;
+    using Repositories.Interfaces;
 
-    public class ShopService
+    public class ShopService : IShopService
 	{
-		private DatabaseDriver DatabaseDriver;
-		private Logger logger;
+		private readonly IRepository DatabaseDriver;
+		private readonly ILogger logger;
 
-		private Supplier1 Supplier1;
-		private Supplier2 Supplier2;
-		private Supplier3 Supplier3;
+		private ISupplier Supplier1;
+		private ISupplier Supplier2;
+		private ISupplier Supplier3;
 		
 		public ShopService()
 		{
