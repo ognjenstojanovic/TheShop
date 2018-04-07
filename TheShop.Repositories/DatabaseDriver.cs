@@ -1,11 +1,13 @@
-﻿namespace TheShop
+﻿namespace TheShop.Repositories
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    
+    using Model;
+    using Repositories.Interfaces;
+
     //in memory implementation
-    public class DatabaseDriver
+    public class DatabaseDriver : IRepository
     {
         private List<Article> _articles = new List<Article>();
 

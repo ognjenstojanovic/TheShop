@@ -1,4 +1,4 @@
-﻿namespace TheShop
+﻿namespace TheShop.Model
 {
     using System;
 

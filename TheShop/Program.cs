@@ -2,7 +2,9 @@
 
 namespace TheShop
 {
-	internal class Program
+    using Services;
+
+    internal class Program
 	{
 		private static void Main(string[] args)
 		{

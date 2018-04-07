@@ -1,0 +1,11 @@
+C:\Projects\TheShop\TheShop.Services\obj\Debug\TheShop.Services.csprojResolveAssemblyReference.cache
+C:\Projects\TheShop\TheShop.Services\obj\Debug\TheShop.Services.csproj.CoreCompileInputs.cache
+C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Services.dll
+C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Services.pdb
+C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Model.dll
+C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Repositories.dll
+C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Model.pdb
+C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Repositories.pdb
+C:\Projects\TheShop\TheShop.Services\obj\Debug\TheShop.Services.csproj.CopyComplete
+C:\Projects\TheShop\TheShop.Services\obj\Debug\TheShop.Services.dll
+C:\Projects\TheShop\TheShop.Services\obj\Debug\TheShop.Services.pdb

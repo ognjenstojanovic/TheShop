@@ -1,6 +1,8 @@
-﻿namespace TheShop
+﻿namespace TheShop.Services
 {
-    public class Supplier3
+    using Model;
+
+    public class Supplier1
     {
         public bool ArticleInInventory(int id)
         {
@@ -12,8 +14,8 @@
             return new Article()
             {
                 ID = 1,
-                Name_of_article = "Article from supplier3",
-                ArticlePrice = 460
+                Name_of_article = "Article from supplier1",
+                ArticlePrice = 458
             };
         }
     }

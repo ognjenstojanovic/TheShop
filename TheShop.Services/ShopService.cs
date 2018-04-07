@@ -1,8 +1,10 @@
-﻿using System;
-
-namespace TheShop
+﻿namespace TheShop.Services
 {
-	public class ShopService
+    using System;
+    using Model;
+    using Repositories;
+
+    public class ShopService
 	{
 		private DatabaseDriver DatabaseDriver;
 		private Logger logger;
