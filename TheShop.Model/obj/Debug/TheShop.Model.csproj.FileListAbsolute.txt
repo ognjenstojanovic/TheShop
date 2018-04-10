@@ -3,3 +3,4 @@ C:\Projects\TheShop\TheShop.Model\bin\Debug\TheShop.Model.pdb
 C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csproj.CoreCompileInputs.cache
 C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.dll
 C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.pdb
+C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csprojResolveAssemblyReference.cache

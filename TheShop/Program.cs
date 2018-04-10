@@ -1,14 +1,18 @@
 ﻿namespace TheShop
 {
     using System;
+    using System.Collections.Generic;
     using Services;
     using Services.Interfaces;
+    using TheShop.Repositories;
 
     internal class Program
 	{
 		private static void Main(string[] args)
 		{
-			IShopService shopService = new ShopService();
+			IShopService shopService = new ShopService(
+			                                new DatabaseDriver(),
+			                                new Logger());
 
 			try
 			{

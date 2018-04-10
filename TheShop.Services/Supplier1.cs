@@ -3,14 +3,23 @@
     using Interfaces;
     using Model;
 
-    public class Supplier1 : ISupplier
+    public class Supplier1 : ChainableSupplier
     {
-        public bool ArticleInInventory(int id)
+        public Supplier1(ChainableSupplier supplier)
+            : base(supplier)
+        {
+        }
+
+        public Supplier1()
+        {
+        }
+
+        public override bool ArticleInInventory(int id)
         {
             return true;
         }
 
-        public Article GetArticle(int id)
+        public override Article GetArticle(int id)
         {
             return new Article()
             {
