@@ -7,3 +7,12 @@ C:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.csproj.C
 C:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.csproj.CopyComplete
 C:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.dll
 C:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.pdb
+D:\Projects\TheShop\TheShop.Repositories\bin\Debug\TheShop.Repositories.dll
+D:\Projects\TheShop\TheShop.Repositories\bin\Debug\TheShop.Repositories.pdb
+D:\Projects\TheShop\TheShop.Repositories\bin\Debug\TheShop.Model.dll
+D:\Projects\TheShop\TheShop.Repositories\bin\Debug\TheShop.Model.pdb
+D:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.csprojResolveAssemblyReference.cache
+D:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.csproj.CoreCompileInputs.cache
+D:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.csproj.CopyComplete
+D:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.dll
+D:\Projects\TheShop\TheShop.Repositories\obj\Debug\TheShop.Repositories.pdb

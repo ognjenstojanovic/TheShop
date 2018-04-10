@@ -2,10 +2,10 @@
 {
     using Model;
 
-    public interface IRepository
+    public interface IRepository<T>
     {
-        Article GetById(int id);
+        T GetById(int id);
 
-        void Save(Article article);
+        void Save(T article);
     }
 }

@@ -1,17 +1,17 @@
 ﻿namespace TheShop
 {
     using System;
-    using System.Collections.Generic;
     using Services;
     using Services.Interfaces;
+    using TheShop.Model;
     using TheShop.Repositories;
 
     internal class Program
 	{
 		private static void Main(string[] args)
 		{
-			IShopService shopService = new ShopService(
-			                                new DatabaseDriver(),
+			IShopService<Article> shopService = new ShopService<Article>(
+			                                new DatabaseDriver<Article>(),
 			                                new Logger());
 
 			try

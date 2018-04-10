@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72C6A701-A607-4030-8A52-D004440C2AA1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TheShop</RootNamespace>
-    <AssemblyName>TheShop</AssemblyName>
+    <ProjectGuid>{2978FA2D-F539-405F-9F0E-7FF05256ECC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheShop.Suppliers</RootNamespace>
+    <AssemblyName>TheShop.Suppliers</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,26 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Interfaces\ISupplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <Compile Include="Supplier1.cs" />
+    <Compile Include="Supplier2.cs" />
+    <Compile Include="Supplier3.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheShop.Model\TheShop.Model.csproj">
-      <Project>{6E7F2E4D-4916-44E7-B334-F42148095A23}</Project>
+      <Project>{6e7f2e4d-4916-44e7-b334-f42148095a23}</Project>
       <Name>TheShop.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheShop.Repositories\TheShop.Repositories.csproj">
-      <Project>{7e303142-6bc6-43fb-bd52-113a14f764d4}</Project>
-      <Name>TheShop.Repositories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheShop.Services\TheShop.Services.csproj">
-      <Project>{04C4A91A-FEA6-48B2-BBA3-C581285E9EF3}</Project>
-      <Name>TheShop.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

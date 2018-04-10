@@ -1,25 +1,39 @@
 ﻿namespace TheShop.Services
 {
-    using System.Data.Odbc;
-    using Interfaces;
-    using Model;
+    using TheShop.Model.Interface;
+    using TheShop.Services.Interfaces;
+    using TheShop.Suppliers.Interfaces;
 
-    public abstract class ChainableSupplier : ISupplier
+    public class ChainableSupplier<T> : IChainableSupplier<T>
+        where T : IArticle
     {
-        private ChainableSupplier Successor { get; }
+        private readonly ISupplier<T> _supplier;
 
-        protected ChainableSupplier(ChainableSupplier successor)
+        public IChainableSupplier<T> Successor { get; set; }
+
+        public ChainableSupplier(ISupplier<T> supplier, IChainableSupplier<T> successor)
         {
+            _supplier = supplier;
             Successor = successor;
         }
 
-        protected ChainableSupplier()
+        public T Order(int id, int maxExpectedPrice)
         {
-            Successor = null;
+            if(_supplier.ArticleInInventory(id))
+            {
+                T article = _supplier.GetArticle(id);
+                if(article.ArticlePrice < maxExpectedPrice)
+                {
+                    return article;
+                }
+            }
+
+            return Successor.Order(id, maxExpectedPrice);
         }
 
-        public abstract bool ArticleInInventory(int id);
-
-        public abstract Article GetArticle(int id);
+        public void SellArticle(int id, int buyerId, T article)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
