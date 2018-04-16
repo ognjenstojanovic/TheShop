@@ -9,5 +9,7 @@
         int ArticlePrice { get; set; }
 
         IArticle Sell(int buyerId);
+
+        int SupplierId { get; set; }
     }
 }

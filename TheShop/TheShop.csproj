@@ -51,6 +51,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TheShop.Factory\TheShop.Factory.csproj">
+      <Project>{B3226E96-FF23-421A-B628-96DC81400776}</Project>
+      <Name>TheShop.Factory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TheShop.Model\TheShop.Model.csproj">
       <Project>{6E7F2E4D-4916-44E7-B334-F42148095A23}</Project>
       <Name>TheShop.Model</Name>
@@ -62,6 +66,10 @@
     <ProjectReference Include="..\TheShop.Services\TheShop.Services.csproj">
       <Project>{04C4A91A-FEA6-48B2-BBA3-C581285E9EF3}</Project>
       <Name>TheShop.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheShop.Suppliers\TheShop.Suppliers.csproj">
+      <Project>{2978FA2D-F539-405F-9F0E-7FF05256ECC8}</Project>
+      <Name>TheShop.Suppliers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

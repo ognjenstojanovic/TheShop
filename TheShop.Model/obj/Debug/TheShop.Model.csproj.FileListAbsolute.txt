@@ -3,10 +3,10 @@ C:\Projects\TheShop\TheShop.Model\bin\Debug\TheShop.Model.pdb
 C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csproj.CoreCompileInputs.cache
 C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.dll
 C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.pdb
-C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csprojResolveAssemblyReference.cache
 D:\Projects\TheShop\TheShop.Model\bin\Debug\TheShop.Model.dll
 D:\Projects\TheShop\TheShop.Model\bin\Debug\TheShop.Model.pdb
 D:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csproj.CoreCompileInputs.cache
 D:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.dll
 D:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.pdb
 D:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csprojResolveAssemblyReference.cache
+C:\Projects\TheShop\TheShop.Model\obj\Debug\TheShop.Model.csprojResolveAssemblyReference.cache

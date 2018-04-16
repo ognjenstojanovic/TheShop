@@ -2,10 +2,10 @@
 {
     using Model;
 
-    public interface IShopService<T>
+    public interface IShopService
     {
         void OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId);
 
-        T GetById(int id);
+        Article GetById(int id);
     }
 }

@@ -2,19 +2,19 @@
 {
     using Interfaces;
     using Model;
-    using TheShop.Model.Interface;
 
-    public class Supplier3<T> : ISupplier<T>
-        where T : IArticle
+    public class Supplier3 : ISupplier
     {
+        public int Id { get; set; }
+
         public bool ArticleInInventory(int id)
         {
             return true;
         }
 
-        public T GetArticle(int id)
+        public Article GetArticle(int id)
         {
-            return new T()
+            return new Article()
             {
                 ID = 1,
                 Name_of_article = "Article from supplier3",

@@ -1,66 +1,39 @@
 ﻿namespace TheShop.Services
 {
     using System;
+    using Factory.Interfaces;
     using Interfaces;
     using Model;
     using Repositories.Interfaces;
+    using Suppliers.Interfaces;
     using TheShop.Model.Interface;
     using TheShop.Suppliers;
 
-    public class ShopService<T> : IShopService<T>
-        where T : IArticle
+    public class ShopService : IShopService
     {
-        private readonly IRepository<T> _databaseDriver;
+        private readonly IRepository<Article> _databaseDriver;
         private readonly ILogger _logger;
-        private IChainableSupplier<T> _top;
+        private readonly ISupplierHierarchyFactory _factory;
+        private readonly IChainableSupplier _top;
 
         public ShopService(
-            IRepository<T> repository,
-            ILogger logger)
+            IRepository<Article> repository,
+            ILogger logger,
+            ISupplierHierarchyFactory factory)
         {
             _databaseDriver = repository;
             _logger = logger;
+            _factory = factory;
 
-            CreateSupplierHierarchy();
-        }
+            _top = _factory.CreateChainableSupplierHierarchy();
+        }        
 
-        private void CreateSupplierHierarchy()
+        public Article GetById(int id)
         {
-            _top = new ChainableSupplier<T>(
-                new Supplier1<T>(),
-                new ChainableSupplier<T>(
-                    new Supplier2<T>(),
-                    new ChainableSupplier<T>(
-                        new Supplier3<T>(),
-                        new NullChainableSupplier<T>(_logger))));
-        }
+            if (id <= 0) throw new ArgumentException("Format of argument " + nameof(id) + " is not valid.");
 
-        public void OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId)
-        {
-            T article = OrderArticle(id, maxExpectedPrice);
-            if (article != null)
-            {
-                SellArticle(id, buyerId, article);
-            }
-        }
-
-        private T OrderArticle(int id, int maxExpectedPrice)
-        {
-            return _top.Order(id, maxExpectedPrice);
-        }
-
-        private void SellArticle(int id, int buyerId, T article)
-        {
-            _logger.Debug("Trying to sell article with id=" + id);
-            article.Sell(buyerId);
-            _databaseDriver.Save(article);
-            _logger.Info("Article with id=" + id + " is sold.");
-
-        }
-
-        public T GetById(int id)
-        {
-            T article =  _databaseDriver.GetById(id);
+            _logger.Info("Looking for Article with Id = " + id);
+            Article article = _databaseDriver.GetById(id);
             if (article == null)
             {
                 _logger.Info("Article with Id = " + id + " not found.");
@@ -68,64 +41,31 @@
 
             return article;
         }
+
+        public void OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId)
+        {
+            if (id <= 0) throw new ArgumentException("Format of argument " + nameof(id) + " is not valid.");
+            if (maxExpectedPrice <= 0) throw new ArgumentException("Format of argument " + nameof(maxExpectedPrice) + " is not valid.");
+            if (buyerId <= 0) throw new ArgumentException("Format of argument " + nameof(buyerId) + " is not valid.");
+
+            Article article = OrderArticle(id, maxExpectedPrice);
+            if (article != null)
+            {
+                SellArticle(id, buyerId, article);
+            }
+        }
+
+        private Article OrderArticle(int id, int maxExpectedPrice)
+        {
+            return _top.Order(id, maxExpectedPrice);
+        }
+
+        private void SellArticle(int id, int buyerId, Article article)
+        {
+            _logger.Debug("Trying to sell article with id=" + id);
+            article.Sell(buyerId);
+            _databaseDriver.Save(article);
+            _logger.Info("Article with id=" + id + " is sold.");
+        }        
     }
 }
-
-// Old order implementation
-/*
- Article article = null;
-	        Article tempArticle = null;
-	        var articleExists = _supplier1.ArticleInInventory(id);
-	        if (articleExists)
-	        {
-	            tempArticle = _supplier1.GetArticle(id);
-	            if (maxExpectedPrice < tempArticle.ArticlePrice)
-	            {
-	                articleExists = _supplier2.ArticleInInventory(id);
-	                if (articleExists)
-	                {
-	                    tempArticle = _supplier2.GetArticle(id);
-	                    if (maxExpectedPrice < tempArticle.ArticlePrice)
-	                    {
-	                        articleExists = _supplier3.ArticleInInventory(id);
-	                        if (articleExists)
-	                        {
-	                            tempArticle = _supplier3.GetArticle(id);
-	                            if (maxExpectedPrice < tempArticle.ArticlePrice)
-	                            {
-	                                article = tempArticle;
-	                            }
-	                        }
-	                    }
-	                }
-	            }
-	        }
-
-	        article = tempArticle;
-	        return article;
-     */
-
-/*
- * if (article == null)
-            {
-                throw new Exception("Could not order article");
-            }
-
-            _logger.Debug("Trying to sell article with id=" + id);
-
-            article.Sell(buyerId);            
-
-            try
-            {
-                _databaseDriver.Save(article);
-                _logger.Info("Article with id=" + id + " is sold.");
-            }
-            catch (ArgumentNullException ex)
-            {
-                _logger.Error("Could not save article with id=" + id);
-                throw new Exception("Could not save article with id");
-            }
-            catch (Exception)
-            {
-            }
- */

@@ -27,5 +27,7 @@
                 ArticlePrice = ArticlePrice
             };
         }
+
+        public int SupplierId { get; set; }
     }
 }
