@@ -26,3 +26,5 @@ C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Suppliers.dll
 C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Suppliers.pdb
 C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Factory.dll
 C:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Factory.pdb
+D:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Factory.dll
+D:\Projects\TheShop\TheShop.Services\bin\Debug\TheShop.Factory.pdb

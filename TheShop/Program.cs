@@ -4,7 +4,6 @@
     using Factory;
     using Services;
     using Services.Interfaces;
-    using Suppliers;
     using TheShop.Model;
     using TheShop.Repositories;
 

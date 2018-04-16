@@ -29,10 +29,5 @@
 
             return Successor.Order(id, maxExpectedPrice);
         }
-
-        public void SellArticle(int id, int buyerId, Article article)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -10,6 +10,7 @@
     using Services.Interfaces;
     using Suppliers;
     using Suppliers.Interfaces;
+    using TheShop.Factory.Interfaces;
 
     [TestFixture]
     public class ShopServiceTests : BaseTest
@@ -47,6 +48,39 @@
 
             // Act and Assert
             action.Should().Throw<ArgumentException>();
+        }
+
+        [Test]
+        public void ShopService_OrderAndSellArticle_Succeeds()
+        {
+            // Arrange
+            Mock.Mock<ISupplierHierarchyFactory>()
+                .Setup(x => x.CreateChainableSupplierHierarchy())
+                .Returns(CreateSupplierHierarchy());
+
+            Mock.Mock<IRepository<Article>>()
+                .Setup(x => x.Save(It.IsAny<Article>()));
+
+            var service = Mock.Create<ShopService>();
+
+            // Act
+            service.OrderAndSellArticle(123, 500, 1);
+
+            // Assert
+            Mock.Mock<IRepository<Article>>().Verify(x => x.Save(It.IsAny<Article>()), Times.Once);
+        }
+
+        [TestCase(0, 100, 1)]
+        [TestCase(1, 0, 1)]
+        [TestCase(1, 100, 0)]
+        public void ShopService_OrderAndSellArticle_ThrowsArgumentException(int id, int maxExpectedPrice, int buyerId)
+        {
+            // Arrange
+            var service = Mock.Create<ShopService>();
+            Action a = () => service.OrderAndSellArticle(id, maxExpectedPrice, buyerId);            
+
+            // Act Assert
+            a.Should().Throw<ArgumentException>();
         }
 
         private IChainableSupplier CreateSupplierHierarchy()

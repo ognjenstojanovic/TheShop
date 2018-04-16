@@ -11,5 +11,7 @@
         IArticle Sell(int buyerId);
 
         int SupplierId { get; set; }
+
+        bool IsSold { get; set; }
     }
 }

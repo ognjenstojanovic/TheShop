@@ -86,6 +86,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TheShop.Factory\TheShop.Factory.csproj">
+      <Project>{b3226e96-ff23-421a-b628-96dc81400776}</Project>
+      <Name>TheShop.Factory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TheShop.Model\TheShop.Model.csproj">
       <Project>{6E7F2E4D-4916-44E7-B334-F42148095A23}</Project>
       <Name>TheShop.Model</Name>
