@@ -48,11 +48,18 @@
             if (maxExpectedPrice <= 0) throw new ArgumentException("Format of argument " + nameof(maxExpectedPrice) + " is not valid.");
             if (buyerId <= 0) throw new ArgumentException("Format of argument " + nameof(buyerId) + " is not valid.");
 
+            _logger.Info("Trying to order Article with id = " + id);
+
             Article article = OrderArticle(id, maxExpectedPrice);
             if (article != null)
             {
+                _logger.Info("Article with id = " + id + " found at Supplier with id = " + article.SupplierId);
                 SellArticle(id, buyerId, article);
             }
+            else
+            {
+                _logger.Info("Article with id = " + id + " with price = " + maxExpectedPrice + " was not found.");
+            }            
         }
 
         private Article OrderArticle(int id, int maxExpectedPrice)
@@ -62,10 +69,10 @@
 
         private void SellArticle(int id, int buyerId, Article article)
         {
-            _logger.Debug("Trying to sell article with id=" + id);
+            _logger.Info("Trying to sell article with id = " + id);
             article.Sell(buyerId);
             _databaseDriver.Save(article);
-            _logger.Info("Article with id=" + id + " is sold.");
+            _logger.Info("Article with id = " + id + " is sold.");
         }        
     }
 }
